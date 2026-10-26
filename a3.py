@@ -216,7 +216,7 @@ def bye_action(dummy: List[str]) -> None:
 # pattern and action It must be declared here, after all of the function definitions
 pa_list: List[Tuple[List[str], Callable[[List[str]], List[Any]]]] = [
     (str.split("what movies were made in _"), title_by_year),
-    (str.split("in the year _, what movies were made"), title_by_year),
+    (str.split("in the year _ what movies were made"), title_by_year),
     (str.split("what movies were made between _ and _"), title_by_year_range),
     (str.split("what movies were made before _"), title_before_year),
     (str.split("what movies were made after _"), title_after_year),
@@ -244,7 +244,16 @@ def search_pa_list(src: List[str]) -> List[str]:
         a list of answers. Will be ["I don't understand"] if it finds no matches and
         ["No answers"] if it finds a match but no answers
     """
-    pass
+    for pattern, action in pa_list:
+        matches = match(pattern, src)
+        # print(f"pattern: {pattern}, src: {src}, matches: {matches}")
+        if matches is not None:
+            answers = action(matches)
+            if len(answers) == 0:
+                return ["No answers"]
+            else:
+                return answers
+    return ["I don't understand"]
 
 
 def query_loop() -> None:
@@ -269,7 +278,7 @@ def query_loop() -> None:
 # uncomment the following line once you've written all of your code and are ready to try
 # it out. Before running the following line, you should make sure that your code passes
 # the existing asserts.
-# query_loop()
+query_loop()
 
 if __name__ == "__main__":
     assert isinstance(title_by_year(["1974"]), list), "title_by_year not returning a list"

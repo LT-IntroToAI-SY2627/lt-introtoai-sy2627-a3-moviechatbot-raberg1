@@ -221,7 +221,7 @@ def actors_by_director(matches: List[str]) -> List[str]:
     for movie in movie_db:
         if get_director(movie) == director:
             results.extend(get_actors(movie))
-            print(f"Director: {director}, Movie: {get_title(movie)}, Actors: {get_actors(movie)}")
+            # print(f"Director: {director}, Movie: {get_title(movie)}, Actors: {get_actors(movie)}")
     return list(set(results))
 
 # dummy argument is ignored and doesn't matter

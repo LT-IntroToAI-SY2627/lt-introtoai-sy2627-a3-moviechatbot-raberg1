@@ -435,4 +435,21 @@ movie_db: List[Tuple[str, str, int, List[str]]] = [
             "spike lee",
         ],
     ),
+    (
+        "avengers: endgame",
+        "anthony russo, joe russo",
+        2019,
+        [
+            "robert downey jr.",
+            "chris evans",
+            "mark ruffalo",
+            "chris hemsworth",
+            "scarlett johansson",
+            "jeremy renner",
+            "don cheadle",
+            "paul rudd",
+            "brie larson",
+            "karen gillan",
+        ],
+    ),
 ]

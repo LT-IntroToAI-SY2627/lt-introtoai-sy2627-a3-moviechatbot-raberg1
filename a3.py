@@ -264,7 +264,7 @@ def search_pa_list(src: List[str]) -> List[str]:
     """
     for pattern, action in pa_list:
         matches = match(pattern, src)
-        print(f"pattern: {pattern}, src: {src}, matches: {matches}")
+        # print(f"pattern: {pattern}, src: {src}, matches: {matches}")
         if matches is not None:
             answers = action(matches)
             if len(answers) == 0:
